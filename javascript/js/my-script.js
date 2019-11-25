@@ -1,0 +1,1 @@
+alert('javascript in external js file !!!!!');

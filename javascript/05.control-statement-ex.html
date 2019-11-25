@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <!-- <style type="text/css">
+        tr {
+            height: 50px;
+        }
+
+        tr:nth-child(2n+2) {
+            background-color: palegreen;
+        }
+
+        td {
+            text-align: center;
+            font-size: 12pt;
+            font-weight: bold;
+            padding: 5px;
+        }
+    </style> -->
+    <script type="text/javascript">
+        //1. 구구단 출력
+        // document.write("<table border='1' align='center'>");
+
+        // document.write("<caption>");
+        // document.write("<h2>구구단</h2>")
+        // document.write("</caption>");
+
+        // document.write("<tr>");
+        // for (var col = 1; col < 10; col++) {
+        //     document.write("<th>" + col + "단</th>");
+        // }
+        // document.write("</tr>");
+
+        // for (var row = 1; row < 10; row++) {
+        //     document.write("<tr>");
+        //     for (var col = 1; col < 10; col++) {
+        //         // document.write("<td>" + row + " * " + col + " = " + (row * col)  + "</td>");
+        //         document.write(`<td> ${row} * ${col} = ${row * col} </td>`); //ES6부터 지원
+        //     }
+        //     document.write("</tr>");
+        // }
+        // document.write("<table>");
+
+        //2. 로또 번호 뽑아서 출력
+        // var rndf = Math.random();
+        // document.write(rndf);
+        // rndf = rndf * 45;
+        // document.write("<br>");
+        // document.write(rndf);
+        // var rndi = Math.ceil(rndf); // Math.ceil : 올림 (Math.floor(내림), Math.round(반올림))
+        // document.write("<br>");
+
+        // var rnd = Math.ceil(Math.random() * 45); // 1 ~ 45 의 난수
+
+        // var numbers = [0, 0, 0, 0, 0, 0];
+        // var sum = 0;
+
+        // // document.write(rnd);
+        // document.write(`<table border="1"><tr>`);
+        // for (var i = 0; i < numbers.length; i++) {
+        //     numbers[i] = Math.ceil(Math.random() * 45);
+        //     for (var j = 0; j < i; j++) {
+        //         if (numbers[i] == numbers[j]) {
+        //             i--;
+        //             break;
+        //         }
+        //     }
+        // }
+        // document.write("</tr>")
+        // for (var i = 0; i < numbers.length; i++) {
+        //     document.write(`<td> ${numbers[i]} </td>`);
+        //     sum += numbers[i];
+        // }
+        // document.write(`<tr><td colspan="6" align="right"> 평균 : ${Math.round(sum / numbers.length)} </td></tr>`);
+        // document.write("</table>");
+
+        // 3. 삼항 연산자(간단한 if ~ else 구문을 대체)
+        var a = Math.random();
+        // var b = -1;
+        // if (a >= 0.5) {
+        //     b = 1;
+        // } else {
+        //     b = 0;
+        // }
+        var b = a >= 0.5 ? 1 : 0;
+        document.write(`<h3>[a:${a}][b:${b}]</h3>`);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+    window.addEventListener('load', function() {
+        var forward = document.querySelector('#forward');
+        forward.addEventListener('click', function() {
+            history.forward(); // == history.go(1);
+        });
+        var back = document.querySelector('#back');
+        back.addEventListener('click', function() {
+            history.back(); // == history.go(-1);
+        });
+    });
+    </script>
+</head>
+<body>
+    <button id="back">뒤로 이동</button>
+    <button id="forward">앞으로 이동</button>
+</body>
+</html>

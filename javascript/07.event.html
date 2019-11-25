@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event</title>
+    <style type="text/css">
+        button {
+            width: 100px;
+            height: 50px;
+        }
+
+        div {
+            width: 200px;
+            height: 100px;
+            border: solid 3px blue;
+            background-color: orange;
+        }
+    </style>
+    <script type="text/javascript">
+        function clickHandler(target) {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="alert('첫번째 감사합니다.');">눌러주세요</button>
+    <br><br>
+    <div onmouseover="this.style.backgroundColor = 'red';" onmouseout="this.style.backgroundColor = '';"></div>
+    <br>
+    <div onclick="clickHandler(this);" onmouseout="this.style.backgroundColor = '';"></div>
+</body>
+
+</html>

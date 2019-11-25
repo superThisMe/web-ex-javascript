@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Window Object (practice)</title>
+    <style type="text/css">
+        #clicker {
+            border: solid, 1px;
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            font-size: 20pt;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="clicker">눌러주세요</div>
+
+
+    <script type="text/javascript">
+        addEventListener('load', function () {
+
+            var timer = null;
+
+            function colorChange() {
+
+                var r = Math.floor(Math.random() * 256);
+                var g = Math.floor(Math.random() * 256);
+                var b = Math.floor(Math.random() * 256);
+                var cl = document.querySelector('#clicker');
+                cl.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                cl.style.color = `rgb(${r}, ${g}, ${b})`;
+                timer = setTimeout(colorChange, 1000);
+
+            }
+
+            // function eventDiv() {
+
+            //     timer = setTimeout(colorChange, 1000);
+            //     cl.removeEventListener('click', eventDiv);
+            //     cl.addEventListener("click", function () {
+            //         clearTimeout(timer);
+            //         cl.style.color = `black`;
+            //         cl.addEventListener('click', eventDiv);
+            //     });
+
+            // }
+
+            // var cl = document.querySelector('#clicker');
+            // cl.addEventListener('click', eventDiv);
+
+            var clickCount = 0;
+            var cl = document.querySelector('#clicker');
+            cl.addEventListener('click', function () {
+                if ((clickCount % 2) == 0) {
+                    timer = setTimeout(colorChange, 1000);
+                } else {
+                    clearTimeout(timer);
+                    cl.style.color = `black`;
+                }
+                clickCount++;
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

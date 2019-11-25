@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+    window.addEventListener('load', function() {
+
+        var contentFrame = document.querySelector("#content");
+
+        var google = document.querySelector('#google');
+        google.addEventListener('click', function() {
+            //contentFrame.src = "http://developers.google.com";
+            contentFrame.src = "http://grlib.sen.go.kr";
+        });
+        var apple = document.querySelector('#apple');
+        apple.addEventListener('click', function() {
+            contentFrame.src = "http://developer.apple.com";
+        });
+    });
+    </script>
+</head>
+<body>
+    <button id="google">구글 개발자 사이트</button>
+    <button id="apple">애플 개발자 사이트</button>
+    <hr>
+    <iframe id="content" src="http://goott.co.kr" width="800" height="500">
+    </iframe>
+</body>
+</html>

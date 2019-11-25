@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Function</title>
+    <script type="text/javascript">
+    //1. 함수 정의 및 호출
+    // function f1(a, b, c) {
+    //     alert(a);
+    //     alert(b);
+    //     alert(c);
+    //     return 100;
+    // }
+
+    // // f1();
+    // // f1(10);
+    // // f1(10, 20, 30, 40);
+    // var r = f1();
+    // alert(r);
+
+    //2. 함수는 데이터
+    function f2() {
+        alert('function f2');
+    }
+
+    var x = 10;
+    var func = f2; // 함수를 변수에 저장 (변수는 함수)
+    // func();
+    // x(); // 오류
+
+    var func2 = function() { // 이름없는 함수를 만들어 변수에 저장
+        alert('function func2');
+    }
+    func2();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

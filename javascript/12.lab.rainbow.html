@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+    window.addEventListener("load", function() {
+
+        var rainbow = document.querySelector("#rainbow");
+        rainbow.style.margin = "0 auto";
+
+        var canvas = document.querySelector("#canvas");
+        canvas.style.border = "solid 1px";
+        canvas.style.width = "510px";
+        canvas.style.height = "500px";
+        canvas.style.margin = "0 auto";
+
+        var colors = ["red", "orange", "yellow", 
+                      "green", "blue", "navy", "purple"];
+        //td 자식요소 div를 모두 가져오세요
+        // var divs = document.querySelectorAll("td > div")
+        for (var i = 0; i < colors.length; i++) {
+            var div = document.querySelector("#" + colors[i]);
+            div.style.width = '70px';
+            div.style.height = '70px';
+            div.style.backgroundColor = colors[i];
+
+            div.addEventListener("mouseover", function(event) {
+                var d = event.target;                                
+                canvas.style.backgroundColor = d.style.backgroundColor;
+            });
+            div.addEventListener("mouseout", function(event) {
+                var d = event.target;
+                canvas.style.backgroundColor = "";
+            });
+
+        }        
+
+    });
+    </script>
+</head>
+<body>
+    <br><br><br>
+    <table id="rainbow">
+        <tr>
+            <td><div id="red"></div></td>
+            <td><div id="orange"></div></td>
+            <td><div id="yellow"></div></td>
+            <td><div id="green"></div></td>
+            <td><div id="blue"></div></td>
+            <td><div id="navy"></div></td>
+            <td><div id="purple"></div></td>
+        </tr>
+    </table>
+    <div id="canvas"></div>
+
+</body>
+</html>

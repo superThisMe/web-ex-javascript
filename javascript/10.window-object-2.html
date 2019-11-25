@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Window Object 2</title>
+    <style type="text/css">
+        button {
+            width: 100px;
+            height: 50px;
+        }
+
+        #message {
+            font-size: 15pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="open">새 창 열기</button>
+    <button id="close">열린 창 닫기</button>
+    <hr>
+    <div id="message"></div>
+
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            var openBtn = document.querySelector("#open");
+            openBtn.addEventListener('click', function () {
+                window.open("10.sub-window.html", // 새 창에 표시될 resource 경로
+                            "_blank", // resource 표시될 장소
+                            "width=500, height=600"); // 새 창의 속성
+            });
+        });
+    </script>
+</body>
+
+</html>

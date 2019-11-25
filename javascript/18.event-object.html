@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+        #canvas {
+            border: solid 1px;
+            margin: 20px;
+            height: 700px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+
+            var canvas = document.querySelector("#canvas");
+            var message = document.querySelector("#message");
+            canvas.addEventListener("mousemove", function (event) {
+                message.innerHTML = `[X: ${event.clientX}][Y: ${event.clientY}]`;
+            });
+            canvas.addEventListener("mouseout", function () {
+                message.innerHTML = "여기에 정보가 표시됩니다."
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="message">여기에 정보가 표시됩니다.</div>
+    <hr>
+    <div id="canvas"></div>
+
+</body>
+
+</html>

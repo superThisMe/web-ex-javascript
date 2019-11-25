@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Window Object</title>
+    <style type="text/css">
+        button {
+            border-radius: 50%;
+            color: white;
+            font-size: 11pt;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+        }
+
+        #start {
+            background-color: blue;
+        }
+
+        #stop {
+            background-color: red;
+        }
+
+        div {
+            font-size: 20pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="start">타이머 시작</button>
+    <button id="stop">타이머 중지</button>
+    <button id="popup">팝업 테스트</button>
+    <hr>
+    <div id="time">여기에 시간이 표시됩니다.</div>
+
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+
+            var timer = null;
+
+            function showTime() {
+                var now = new Date(); // 현재시간을 저장한 객체 만들기
+                var time = document.querySelector('#time');
+                time.innerHTML = `<h3>` +
+                    `${now.getFullYear()}년 ` +
+                    `${now.getMonth() + 1}월 ` +
+                    `${now.getDate()}일 ` +
+                    `${now.getHours()}시 ` +
+                    `${now.getMinutes()}분 ` +
+                    `${now.getSeconds()}초` +
+                    `</h3>`;
+
+                timer = window.setTimeout(showTime, 1000);
+
+            }
+
+            document.querySelector('#start')
+                .addEventListener('click', function () {
+                    // window.setInterval(showTime, 1000); // 매 1000ms(1s) 마다 showTime 호출
+                    timer = window.setTimeout(showTime, 1000); // 1000ms(1s) 후에 showTime 호출
+                });
+            document.querySelector('#stop')
+                .addEventListener('click', function () {
+                    // window.clearInterval(timer);
+                    window.clearTimeout(timer);
+                });
+            document.querySelector('#popup')
+                .addEventListener('click', function () {
+                    // window.alert("얍!")
+                    alert("얍!") // window. 생략 가능
+                });
+        });
+    </script>
+</body>
+
+</html>

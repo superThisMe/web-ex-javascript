@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    #canvas { 
+        border: solid 1px; 
+        width: 500px; 
+        height: 500px;        
+        margin: 0 auto; /* 가운데 정렬 */
+    }
+    </style>
+    <script type="text/javascript">
+    window.addEventListener("load", function() {
+
+        var canvas = document.querySelector('#canvas');
+        var timer = null;
+
+        timer = window.setInterval(function() {
+                r = Math.floor(Math.random() * 256); // 0 ~ 255
+                g = Math.floor(Math.random() * 256); // 0 ~ 255
+                b = Math.floor(Math.random() * 256); // 0 ~ 255
+                canvas.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            }, 100);
+
+        canvas.addEventListener('click', function(event) {
+
+            if (timer != null) {
+                window.clearInterval(timer);
+                timer = null;
+                return;
+            }
+
+            timer = window.setInterval(function() {
+                r = Math.floor(Math.random() * 256); // 0 ~ 255
+                g = Math.floor(Math.random() * 256); // 0 ~ 255
+                b = Math.floor(Math.random() * 256); // 0 ~ 255
+                var c = event.target // 이벤트가 발생한 객체 ( == event.srcElement)
+                c.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            }, 100);
+            
+
+        });
+
+    });
+    </script>
+</head>
+<body>
+    <br><br><br>
+    <div id="canvas"></div>
+
+</body>
+</html>

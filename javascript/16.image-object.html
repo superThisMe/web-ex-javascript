@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    td > img {
+        width: 150px;        
+    }
+    #detail {        
+        border: solid 2px;
+        margin-left: 20px;
+        width: 465px;
+    }
+    table { float: left; }
+    </style>
+    <script type="text/javascript">
+    window.addEventListener("load", function() {
+
+        var detail = document.querySelector("#detail");
+        detail.src = "image/1.jpg";
+
+        var imgs = document.querySelectorAll("td > img");
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].src = `image/${i+1}.jpg`;
+            imgs[i].addEventListener('mouseenter', function(event) {
+                detail.src = event.srcElement.src; //srcElement == target
+            });
+            imgs[i].addEventListener('mouseleave', function(event) {
+                detail.src = "image/1.jpg"; //srcElement == target
+            });
+        }
+
+        
+
+    });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img></td>
+            <td><img></td>
+            <td><img></td>
+        </tr>
+        <tr>
+            <td><img></td>
+            <td><img></td>
+            <td><img></td>
+        </tr>
+        <tr>
+            <td><img></td>
+            <td><img></td>
+            <td><img></td>
+        </tr>
+    </table>
+    <img id="detail">
+
+</body>
+</html>

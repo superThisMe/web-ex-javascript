@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sub Window</title>
+    <style type="text/css">
+    
+    </style>
+</head>
+
+<body>
+
+    YOUR MESSAGE : <input id="message" type="text" value="입력하세요">
+    <br>
+    <button id="send">메시지 보내기</button>
+
+    <script type="text/javascript">
+        window.addEventListener('load', function() {
+            
+            var sendBtn = document.querySelector("#send");
+            
+            sendBtn.addEventListener('click', function() {
+               
+                // message 읽기 -> 이 창을 open()한 창에 전달
+                var message = document.querySelector("#message");
+                // window.opener : 이 창을 open()한 창
+                var parent = window.opener;
+                var pMessage = parent.document.querySelector("#message");
+                pMessage.innerHTML = message.value;
+                window.close(); // 현재 창 닫기
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>

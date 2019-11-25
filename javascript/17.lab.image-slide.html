@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+        table {
+            margin: 0 auto;
+        }
+
+        .btn {
+            width: 100px;
+            height: 50px;
+        }
+
+        .small_img {
+            width: 250px;
+            height: 280px
+        }
+
+        .main_img {
+            width: 400px;
+            height: 520px
+        }
+
+        tr:nth-child(2)>td {
+            text-align: center;
+        }
+
+        #auto {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+
+            var prevImg = document.querySelector("#prev-img");
+            var currentImg = document.querySelector("#current-img");
+            var nextImg = document.querySelector("#next-img");
+
+            var currentIdx = 1;
+
+            function changeImage() {
+                prevIdx = currentIdx - 1 == 0 ? 10 : currentIdx - 1;
+                prevImg.src = `image/${prevIdx}.jpg`;
+                currentImg.src = `image/${currentIdx}.jpg`;
+                nextIdx = currentIdx + 1 == 11 ? 1 : currentIdx + 1;
+                nextImg.src = `image/${nextIdx}.jpg`;
+            }
+
+            changeImage();
+
+            var nextBtn = document.querySelector("#next-btn");
+            nextBtn.addEventListener('click', function (event) {
+                //currentIdx = ++currentIdx == 11 ? 1 : currentIdx;
+                currentIdx++;
+                if (currentIdx == 11) {
+                    currentIdx = 1;
+                }
+                changeImage();
+            });
+            var prevBtn = document.querySelector("#prev-btn");
+            prevBtn.addEventListener('click', function (event) {
+                currentIdx--;
+                if (currentIdx == 0) {
+                    currentIdx = 10;
+                }
+                changeImage();
+            });
+            var timer = null;
+            var autoBtn = document.querySelector("#auto");
+            autoBtn.addEventListener('click', function (event) {
+                if (autoBtn.innerHTML == "자동") {
+                    autoBtn.innerHTML = "중지";
+                    prevBtn.disabled = true;
+                    nextBtn.disabled = true;
+                    timer = window.setInterval(function () {
+                        currentIdx++;
+                        if (currentIdx == 11) {
+                            currentIdx = 1;
+                        }
+                        changeImage();
+                    }, 1000);
+                } else {
+                    autoBtn.innerHTML = "자동";
+                    prevBtn.disabled = false;
+                    nextBtn.disabled = false;
+                    window.clearInterval(timer);
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <table cellspacing="20px">
+        <tr>
+            <td><button id="prev-btn" class="btn">이전</button></td>
+            <td><img id="prev-img" class="small_img"></td>
+            <td><img id="current-img" class="main_img"></td>
+            <td><img id="next-img" class="small_img"></td>
+            <td><button id="next-btn" class="btn">다음</button></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <button id="auto">자동</button>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
